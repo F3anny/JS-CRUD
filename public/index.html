@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Big App</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">My Big App</div>
+    <div class="nav-links">
+      <a href="#" onclick="showSection('home')">Home</a>
+      <a href="#" onclick="showSection('about')">About</a>
+      <a href="#" onclick="showSection('signup')" id="nav-signup">Sign Up</a>
+      <a href="#" onclick="showSection('login')" id="nav-login">Login</a>
+      <a href="#" onclick="showSection('dashboard')" id="nav-dashboard" class="hidden">Dashboard</a>
+      <a href="#" onclick="logout()" id="nav-logout" class="hidden">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Home Section -->
+    <div id="home-section" class="section">
+      <h1>Welcome to My Big App</h1>
+      <p>This is a modern web application with user authentication. Sign up or log in to access your personalized dashboard.</p>
+    </div>
+
+    <!-- About Section -->
+    <div id="about-section" class="section hidden">
+      <h1>About Us</h1>
+      <p>Our app provides a seamless experience for users to create accounts, log in, and access personalized content. Built with modern web technologies, it's a great platform to learn backend development.</p>
+    </div>
+
+    <!-- Sign Up Section -->
+    <div id="signup-section" class="section hidden">
+      <h2>Sign Up</h2>
+      <div class="form-container">
+        <div class="form-group">
+          <label for="signup-username">Username</label>
+          <input type="text" id="signup-username" placeholder="Enter username" />
+          <div id="signup-username-error" class="error">Username is required</div>
+        </div>
+        <div class="form-group">
+          <label for="signup-email">Email</label>
+          <input type="email" id="signup-email" placeholder="Enter email" />
+          <div id="signup-email-error" class="error">Valid email is required</div>
+        </div>
+        <div class="form-group">
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password" placeholder="Enter password" />
+          <div id="signup-password-error" class="error">Password must be at least 6 characters</div>
+        </div>
+        <div class="form-group">
+          <label for="signup-confirm-password">Confirm Password</label>
+          <input type="password" id="signup-confirm-password" placeholder="Confirm password" />
+          <div id="signup-confirm-password-error" class="error">Passwords do not match</div>
+        </div>
+        <button onclick="handleSignup()">Sign Up</button>
+        <div class="toggle">
+          Already have an account? <a onclick="showSection('login')">Login</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login Section -->
+    <div id="login-section" class="section hidden">
+      <h2>Login</h2>
+      <div class="form-container">
+        <div class="form-group">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" placeholder="Enter email" />
+          <div id="login-email-error" class="error">Valid email is required</div>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" placeholder="Enter password" />
+          <div id="login-password-error" class="error">Password is required</div>
+        </div>
+        <button onclick="handleLogin()">Login</button>
+        <div class="toggle">
+          Don't have an account? <a onclick="showSection('signup')">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div id="dashboard-section" class="section hidden">
+      <h2>Welcome, <span id="user-username">User</span>!</h2>
+      <div class="dashboard">
+        <div class="card">
+          <h3>Profile</h3>
+          <p>View and edit your personal information.</p>
+        </div>
+        <div class="card">
+          <h3>Activity</h3>
+          <p>Track your recent actions and interactions.</p>
+        </div>
+        <div class="card">
+          <h3>Settings</h3>
+          <p>Customize your app preferences.</p>
+        </div>
+        <div class="card">
+          <h3>Stats</h3>
+          <p>View your usage statistics.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>
